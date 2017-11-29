@@ -16,7 +16,7 @@ CREATE DATABASE AULA11
 
 
 create table CLIENTE(
-ID_CLIENTE int identity not null constraint pk_idcliente primary key ,
+ID_CLIENTE int identity(1000,1) not null constraint pk_idcliente primary key ,
 NOMBRES varchar(50),
 APE_PATER_CLIENTE VARCHAR (50) NOT NULL,
 APE_MATER_CLIENTE VARCHAR (50) NOT NULL,
@@ -43,7 +43,7 @@ go
 
 
 create table VENDEDOR(
-ID_VEN int identity not null constraint pk_vendedorID primary key,
+ID_VEN int identity(1000,1) not null constraint pk_vendedorID primary key,
 VEN_NOM varchar(30),
 VEN_TELEFONO varchar(8),
 VEN_DIRECCION varchar(30),
@@ -59,7 +59,7 @@ go
 
 
 create table PEDIDO(
-ID_PEDIDO int identity not null constraint pk_pedidoID primary key,
+ID_PEDIDO int identity(1000,1) not null constraint pk_pedidoID primary key,
 ID_CLIENTE varchar(10) REFERENCES CLIENTE,
 --ID_SERVICIO varchar(10) REFERENCES SERVICIO,
 --ID_VEN varchar(10) REFERENCES VENDEDOR,
@@ -76,7 +76,7 @@ go
 
 
 create table PLOTEO(
-ID_PLOTEO int identity not null constraint pk_ploteoID primary key DEFAULT,
+ID_PLOTEO int identity(1000,1) not null constraint pk_ploteoID primary key DEFAULT,
 ID_PEDIDO varchar(10) REFERENCES PEDIDO,
 TAMAÑO_HOJA VARCHAR(3),
 ESCALA VARCHAR(5),
@@ -95,7 +95,7 @@ go
 
 
 create table COPIAS(
-ID_COPIAS int identity not null constraint pk_copiasID primary key ,
+ID_COPIAS int identity(1000,1)  not null constraint pk_copiasID primary key ,
 ID_PEDIDO varchar(10) REFERENCES PEDIDO,
 TAMAÑO_HOJA VARCHAR(10),
 NRO_COPIAS VARCHAR(5),
@@ -114,7 +114,7 @@ go
 
 
 create table IMPRESION(
-ID_IMPRESION int identity not null constraint pk_impresionID primary key DEFAULT ,
+ID_IMPRESION int identity(1000,1)  not null constraint pk_impresionID primary key DEFAULT ,
 ID_PEDIDO varchar(10) REFERENCES PEDIDO,
 TIPO_IMPRESION VARCHAR(10),
 NUMHOJAS VARCHAR(10),
